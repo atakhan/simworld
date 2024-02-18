@@ -2,26 +2,37 @@
 #include <stdlib.h>
 #include <vector>
 #include <string>
+
+#include <random>
+
 #include <raylib-cpp.hpp>
 
-#include "game.h"
+#include "tile.h"
+#include "scene.h"
+
+const size_t AREA_WIDTH = 70;
+const size_t AREA_HEIGHT = 40;
+const int CELL_WIDTH = 8;
+const int CELL_HEIGHT = 8;
 
 int main() {
-    Settings settings(800, 450, 30, 25, 20, 16);
-    Game game(&settings);
+    raylib::Window window(700, 400, "SimWorld");
+    std::vector<Tile> tiles;
 
-    game.Init();
-    
+    Scene scene(&tiles);
+
+    scene.Init();
     SetTargetFPS(60);
 
-    while (!game.window.ShouldClose())
+    while (!window.ShouldClose())
     {
         // Update
-        game.Update();
+        scene.Update();
+
         // Draw
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            game.Draw();
+            scene.Draw();
         EndDrawing();
     }
 
