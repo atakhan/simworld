@@ -1,21 +1,23 @@
+#ifndef SIMWORLD_SRC_SCENE_H
+#define SIMWORLD_SRC_SCENE_H
+
 #include <iostream>
 
 #include <raylib-cpp.hpp>
 
 #include "tile.h"
+// #include "heightmap.h"
+#include "terrain.h"
 
 class Scene {
-    const size_t AREA_WIDTH = 70;
-    const size_t AREA_HEIGHT = 40;
-    const int CELL_WIDTH = 8;
-    const int CELL_HEIGHT = 8;
 
   public:
-    Scene(std::vector<Tile> *tiles);
     void Init();
     void Draw();
     void Update();
-  
+
   private:
-    std::vector<Tile> *tiles_;
+    Terrain terrain_;
 };
+
+#endif  // SIMWORLD_SRC_SCENE_H
