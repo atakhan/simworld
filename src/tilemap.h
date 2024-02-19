@@ -1,6 +1,8 @@
 #ifndef SIMWORLD_SRC_TILEMAP_H
 #define SIMWORLD_SRC_TILEMAP_H
 
+#include <iostream>
+
 #include <vector>
 
 #include "tile.h"
@@ -14,7 +16,18 @@ class TileMap {
     void Draw();
     void Update();
 
+    void ParseNeighbors(size_t i, size_t j, std::vector<raylib::Color> *neigbors);
     void ApplyHeightMap(HeightMap *map);
+    void MakeErosion();
+    void ApplyErosionRules(std::vector<raylib::Color> *neighbors);
+    raylib::Color GetNW(size_t i, size_t j);
+    raylib::Color GetN(size_t i, size_t j);
+    raylib::Color GetNE(size_t i, size_t j);
+    raylib::Color GetE(size_t i, size_t j);
+    raylib::Color GetSE(size_t i, size_t j);
+    raylib::Color GetS(size_t i, size_t j);
+    raylib::Color GetSW(size_t i, size_t j);
+    raylib::Color GetW(size_t i, size_t j);
 
   private:
     size_t width_;

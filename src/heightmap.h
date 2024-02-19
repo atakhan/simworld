@@ -3,10 +3,14 @@
 
 #include <vector>
 
+#include <raylib-cpp.hpp>
+
 class HeightMap {
   public:
     HeightMap(size_t area_w, size_t area_h);
     void Generate();
+    void GenerateNoise();
+    void SelectTopestNodes();
     int GetRandomIntBetween(int a, int b);
     std::vector<int> &GetData() {return data_; }
     size_t Width() {return width_;}

@@ -9,6 +9,7 @@ void Terrain::Init() {
     height_map_.Generate();
     tile_map_.Generate();
     tile_map_.ApplyHeightMap(&height_map_);
+    tile_map_.MakeErosion();
 }
 
 void Terrain::Draw() {

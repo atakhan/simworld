@@ -10,10 +10,10 @@
 #include "tilemap.h"
 
 class Terrain {
-    const size_t AREA_WIDTH = 70;
-    const size_t AREA_HEIGHT = 40;
-    const int CELL_WIDTH = 8;
-    const int CELL_HEIGHT = 8;
+  const size_t AREA_WIDTH = 40;
+  const size_t AREA_HEIGHT = 30;
+  const int CELL_WIDTH = 24;
+  const int CELL_HEIGHT = 24;
 
   public:
     Terrain();
@@ -27,8 +27,6 @@ class Terrain {
 
     void GenerateTileMap();
     void GenerateHeightMap();
-
-
 };
 
 #endif  // SIMWORLD_SRC_TERRAIN_H

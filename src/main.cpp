@@ -9,13 +9,8 @@
 
 #include "scene.h"
 
-const size_t AREA_WIDTH = 70;
-const size_t AREA_HEIGHT = 40;
-const int CELL_WIDTH = 8;
-const int CELL_HEIGHT = 8;
-
 int main() {
-    raylib::Window window(700, 400, "SimWorld");
+    raylib::Window window(1200, 800, "SimWorld");
 
     Scene scene;
     scene.Init();

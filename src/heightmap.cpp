@@ -10,11 +10,34 @@ int HeightMap::GetRandomIntBetween(int min, int max) {
 }
 
 void HeightMap::Generate() {
-    for (size_t i = 0; i < width_; i++)
-    {
-        for (size_t j = 0; j < height_; j++)
-        {
-            data_.push_back(GetRandomIntBetween(1,9));
+    GenerateNoise();
+    SelectTopestNodes();
+}
+
+void HeightMap::SelectTopestNodes() {
+    size_t index = 0;
+    for (size_t i = 0; i < width_; i++) {
+        for (size_t j = 0; j < height_; j++) {
+            if ((data_.at(index) >= 0 ) && (data_.at(index) < 7)) {
+                data_.at(index) = 3;
+            } else if ((data_.at(index) >= 7 ) && (data_.at(index) < 13)) {
+                data_.at(index) = 6;
+            } else if ((data_.at(index) >= 13)) {
+                data_.at(index) = 9;
+            } else {
+                data_.at(index) = 13;
+            }
+            index++;
+        }
+    }
+}
+
+void HeightMap::GenerateNoise() {
+    for (size_t i = 0; i < width_; i++) {
+        for (size_t j = 0; j < height_; j++) {
+            int rand_val = 0;
+            rand_val =  GetRandomValue(1, 13);
+            data_.push_back(rand_val);
         }
     }
 
