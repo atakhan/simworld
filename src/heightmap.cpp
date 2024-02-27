@@ -11,10 +11,10 @@ int HeightMap::GetRandomIntBetween(int min, int max) {
 
 void HeightMap::Generate() {
     GenerateNoise();
-    SelectTopestNodes();
+    SelectHeighestNodes();
 }
 
-void HeightMap::SelectTopestNodes() {
+void HeightMap::SelectHeighestNodes() {
     size_t index = 0;
     for (size_t i = 0; i < width_; i++) {
         for (size_t j = 0; j < height_; j++) {

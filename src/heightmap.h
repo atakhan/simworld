@@ -10,7 +10,7 @@ class HeightMap {
     HeightMap(size_t area_w, size_t area_h);
     void Generate();
     void GenerateNoise();
-    void SelectTopestNodes();
+    void SelectHeighestNodes();
     int GetRandomIntBetween(int a, int b);
     std::vector<int> &GetData() {return data_; }
     size_t Width() {return width_;}
