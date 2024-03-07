@@ -5,15 +5,14 @@
 
 #include <raylib-cpp.hpp>
 
-#include "tile.h"
 #include "heightmap.h"
 #include "tilemap.h"
 
 class Terrain {
-  const size_t AREA_WIDTH = 40;
-  const size_t AREA_HEIGHT = 30;
-  const int CELL_WIDTH = 24;
-  const int CELL_HEIGHT = 24;
+  const size_t AREA_WIDTH = 80;
+  const size_t AREA_HEIGHT = 60;
+  const int CELL_WIDTH = 16;
+  const int CELL_HEIGHT = 16;
 
   public:
     Terrain();

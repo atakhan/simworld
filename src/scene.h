@@ -6,7 +6,6 @@
 #include <raylib-cpp.hpp>
 
 #include "tile.h"
-// #include "heightmap.h"
 #include "terrain.h"
 
 class Scene {
@@ -18,6 +17,7 @@ class Scene {
 
   private:
     Terrain terrain_;
+    raylib::Mouse mouse_;
 };
 
 #endif  // SIMWORLD_SRC_SCENE_H

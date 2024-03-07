@@ -10,7 +10,7 @@
 #include "scene.h"
 
 int main() {
-    raylib::Window window(1200, 800, "SimWorld");
+    raylib::Window window(1280, 960, "SimWorld");
 
     Scene scene;
     scene.Init();
