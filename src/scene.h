@@ -7,6 +7,7 @@
 
 #include "tile.h"
 #include "terrain.h"
+#include "button.h"
 
 class Scene {
 
@@ -18,6 +19,8 @@ class Scene {
   private:
     Terrain terrain_;
     raylib::Mouse mouse_;
+    Button erosion_btn_;
+    Button regenerate_btn_;
 };
 
 #endif  // SIMWORLD_SRC_SCENE_H

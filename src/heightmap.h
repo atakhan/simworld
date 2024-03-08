@@ -8,16 +8,20 @@
 class HeightMap {
   const int MIN_HEIGHT = 1;
   const int MAX_HEIGHT = 255;
+  const int ALLOW_DIFF = 10;
+
   public:
     HeightMap(int area_w, int area_h);
     void Generate();
     void GenerateNoise();
     void SelectHighestNodes();
     int GetRandomIntBetween(int a, int b);
+    void MakeErosion();
+    void Clear() { data_.clear(); }
+    
     std::vector<int> &GetData() {return data_; }
     int Width() {return width_;}
     int Height() {return height_;}
-    void MakeErosion();
 
   private:
     int width_;

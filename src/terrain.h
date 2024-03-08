@@ -11,14 +11,17 @@
 class Terrain {
   const size_t AREA_WIDTH = 80;
   const size_t AREA_HEIGHT = 60;
-  const int CELL_WIDTH = 16;
-  const int CELL_HEIGHT = 16;
+  const int CELL_WIDTH = 12;
+  const int CELL_HEIGHT = 12;
 
   public:
     Terrain();
     void Init();
     void Draw();
     void Update();
+
+    void MakeErosion();
+    void Regenerate();
   
   private:
     TileMap tile_map_;
