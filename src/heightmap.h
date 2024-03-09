@@ -29,8 +29,14 @@ class HeightMap {
 
     std::vector<int> data_;
 
-    void UpdateNW(int i, int j, int index);
-    void UpdateNeighbors(int i, int j, int index);
+    void UpdateNW(int index);
+    void UpdateN(int index);
+    void UpdateNE(int index);
+    void UpdateE(int index);
+    void UpdateSE(int index);
+    void UpdateS(int index);
+    void UpdateSW(int index);
+    void UpdateNeighbors(int index);
 };
 
 #endif  // SIMWORLD_SRC_HEIGHTMAP_H
