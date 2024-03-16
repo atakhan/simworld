@@ -6,22 +6,22 @@ void Scene::Init() {
     // кнопка для генерации шума
     regenerate_btn_.Init(
         (Vector2){1280 - 140, 20},
-        (Vector2){120, 50},
+        (Vector2){120, 32},
         "Regenerate"
     );
 
     // кнопка для эрозии (НЕ РАБОТАЕТ!!)
     erosion_btn_.Init(
         (Vector2){1280 - 140, 90},
-        (Vector2){120, 50},
+        (Vector2){120, 32},
         "Erosion"
     );
 
     // кнопка для поднятия уровня рельефа (самые низкие поднимаем на ступень выше)
     elevate_btn_.Init(
         (Vector2){1280 - 140, 160},
-        (Vector2){120, 50},
-        "Elevate"
+        (Vector2){120, 32},
+        "Filter peaks"
     );
 }
 
@@ -44,6 +44,6 @@ void Scene::Update() {
     }
 
     if (elevate_btn_.IsPressed(mouse)) {
-        terrain_.Elevate();
+        terrain_.filterPeaks();
     }
 }

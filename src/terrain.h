@@ -9,10 +9,10 @@
 #include "tilemap.h"
 
 class Terrain {
-  const size_t AREA_WIDTH = 80;
-  const size_t AREA_HEIGHT = 60;
-  const int CELL_WIDTH = 12;
-  const int CELL_HEIGHT = 12;
+  const size_t AREA_WIDTH = 160;
+  const size_t AREA_HEIGHT = 120;
+  const int CELL_WIDTH = 6;
+  const int CELL_HEIGHT = 6;
 
   public:
     Terrain();
@@ -21,7 +21,7 @@ class Terrain {
     void Update();
 
     void MakeErosion();
-    void Elevate();
+    void filterPeaks();
     void Regenerate();
   
   private:

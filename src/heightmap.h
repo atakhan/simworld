@@ -11,6 +11,7 @@ class HeightMap {
   const int MIN_HEIGHT = 1;
   const int MAX_HEIGHT = 255;
   const int ALLOW_DIFF = 10;
+  const int PEAKS_PREVALENCE = 10; // from tiles count
 
   public:
     HeightMap(int area_w, int area_h);
@@ -19,7 +20,7 @@ class HeightMap {
     void SelectHighestNodes();
     int GetRandomIntBetween(int a, int b);
     void MakeErosion();
-    void Elevate();
+    void filterPeaks();
     
     void Clear() { data_.clear(); }
     
@@ -30,7 +31,6 @@ class HeightMap {
   private:
     int width_;
     int height_;
-    int current_min_height_;
 
     std::vector<int> data_;
 

@@ -2,8 +2,7 @@
 
 HeightMap::HeightMap(int w, int h)
     : width_(w)
-    , height_(h) 
-    , current_min_height_(0) 
+    , height_(h)
     {}
 
 int HeightMap::GetRandomIntBetween(int min, int max) {
@@ -15,9 +14,20 @@ void HeightMap::Generate() {
 }
 
 void HeightMap::GenerateNoise() {
+    int from = MIN_HEIGHT;
+    int to = MAX_HEIGHT;
+    int tiles_count = width_ * height_;
     for (int i = 0; i < width_; i++) {
         for (int j = 0; j < height_; j++) {
-            int rand_val = GetRandomIntBetween(MIN_HEIGHT, MAX_HEIGHT);
+            int peak_generate_probabilty = GetRandomIntBetween(0, tiles_count);
+            if (peak_generate_probabilty <= PEAKS_PREVALENCE) {
+                from = MAX_HEIGHT - 100;
+                to = MAX_HEIGHT;
+            } else {
+                from = MIN_HEIGHT;
+                to = MIN_HEIGHT;
+            }
+            int rand_val = GetRandomIntBetween(from, to);
             data_.push_back(rand_val);
         }
     }
@@ -151,19 +161,15 @@ void HeightMap::MakeErosion() {
     }    
 }
 
-void HeightMap::Elevate() {
+void HeightMap::filterPeaks() {
     int index = 0;
-    current_min_height_ += 1;
-
-    std::cout << "current min height: " << current_min_height_ << std::endl;
-
+    bool in_process = true;
     for (int i = 0; i < width_; i++) {
         for (int j = 0; j < height_; j++) {
-            if (data_.at(index) < current_min_height_) {
-                data_.at(index) = current_min_height_;
+            if (data_.at(index) < 255) {
+                data_.at(index) = 0;
             }
             index++;
         }
     }
 }
-
