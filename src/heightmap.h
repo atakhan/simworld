@@ -1,6 +1,8 @@
 #ifndef SIMWORLD_SRC_HEIGHTMAP_H
 #define SIMWORLD_SRC_HEIGHTMAP_H
 
+#include <iostream>
+
 #include <vector>
 
 #include <raylib-cpp.hpp>
@@ -17,6 +19,8 @@ class HeightMap {
     void SelectHighestNodes();
     int GetRandomIntBetween(int a, int b);
     void MakeErosion();
+    void Elevate();
+    
     void Clear() { data_.clear(); }
     
     std::vector<int> &GetData() {return data_; }
@@ -26,6 +30,7 @@ class HeightMap {
   private:
     int width_;
     int height_;
+    int current_min_height_;
 
     std::vector<int> data_;
 

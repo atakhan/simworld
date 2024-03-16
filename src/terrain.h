@@ -21,6 +21,7 @@ class Terrain {
     void Update();
 
     void MakeErosion();
+    void Elevate();
     void Regenerate();
   
   private:

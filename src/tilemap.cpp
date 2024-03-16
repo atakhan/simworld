@@ -34,6 +34,25 @@ void TileMap::ApplyHeightMap(HeightMap *map) {
         for (size_t j = 0; j < height_; j++) {
             int heightValue = map->GetData().at(index);
             tiles_.at(index).updateColorByHeightValue(heightValue);
+            tiles_.at(index).updateHeight(heightValue);
+
+            index++;
+        }
+    }
+}
+
+void TileMap::Elevate() {
+    size_t index = 0;
+
+    std::map<size_t, std::vector<int>> hashmap;
+
+    for (size_t i = 0; i < width_; i++) {
+        for (size_t j = 0; j < height_; j++) {
+            // закинем значения высот в 
+            // индексом будет высота, а значение массив индексов тайлов
+
+            int height = tiles_.at(index).getHeight();
+
             index++;
         }
     }

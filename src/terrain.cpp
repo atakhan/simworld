@@ -31,3 +31,9 @@ void Terrain::Regenerate() {
     tile_map_.ApplyHeightMap(&height_map_);
     std::cout << "regenerate.." << std::endl;
 }
+
+void Terrain::Elevate() {
+    height_map_.Elevate();
+    tile_map_.ApplyHeightMap(&height_map_);
+    std::cout << "regenerate.." << std::endl;
+}

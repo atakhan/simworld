@@ -2,7 +2,9 @@
 
 HeightMap::HeightMap(int w, int h)
     : width_(w)
-    , height_(h) {}
+    , height_(h) 
+    , current_min_height_(0) 
+    {}
 
 int HeightMap::GetRandomIntBetween(int min, int max) {
     return min + (rand() % static_cast<int>(max - min + 1));
@@ -82,8 +84,7 @@ void HeightMap::UpdateE(int index) {
 }
 
 void HeightMap::UpdateSE(int index) {
-    if (((index + 1) % width_ != 0) && ((index + width_ + 1) < data_.size()))
-    {
+    if (((index + 1) % width_ != 0) && ((index + width_ + 1) < data_.size())) {
         int se_index = index + width_ + 1;
         int currentCell = data_.at(index);
         int nw_cell = data_.at(se_index);
@@ -139,7 +140,7 @@ void HeightMap::UpdateNeighbors(int index) {
 
 void HeightMap::MakeErosion() {
     int index = 0;
-
+    
     for (int i = 0; i < width_; i++) {
         for (int j = 0; j < height_; j++) {
             if (data_.at(index) > 200) {
@@ -147,5 +148,22 @@ void HeightMap::MakeErosion() {
             }
             index++;
         }
+    }    
+}
+
+void HeightMap::Elevate() {
+    int index = 0;
+    current_min_height_ += 1;
+
+    std::cout << "current min height: " << current_min_height_ << std::endl;
+
+    for (int i = 0; i < width_; i++) {
+        for (int j = 0; j < height_; j++) {
+            if (data_.at(index) < current_min_height_) {
+                data_.at(index) = current_min_height_;
+            }
+            index++;
+        }
     }
 }
+
