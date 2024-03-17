@@ -41,23 +41,6 @@ void TileMap::ApplyHeightMap(HeightMap *map) {
     }
 }
 
-void TileMap::Elevate() {
-    size_t index = 0;
-
-    std::map<size_t, std::vector<int>> hashmap;
-
-    for (size_t i = 0; i < width_; i++) {
-        for (size_t j = 0; j < height_; j++) {
-            // закинем значения высот в 
-            // индексом будет высота, а значение массив индексов тайлов
-
-            int height = tiles_.at(index).getHeight();
-
-            index++;
-        }
-    }
-}
-
 void TileMap::Draw() {
     size_t tile_id = 0;
     for (size_t i = 0; i < width_; i++) {
@@ -86,6 +69,19 @@ void TileMap::Update() {
             );
 
             tiles_.push_back(Tile(rectanlge, color));
+        }
+    }
+}
+
+void TileMap::ExpandPeaks() {
+    int index = 0;
+    bool in_process = true;
+    for (int i = 0; i < width_; i++) {
+        for (int j = 0; j < height_; j++) {
+            raylib::Vector2 tile_position = tiles_.at(index).GetPosition();
+            std::cout << "x: " << tile_position.GetX() << " y: " << tile_position.GetY() << std::endl;
+
+            index++;
         }
     }
 }

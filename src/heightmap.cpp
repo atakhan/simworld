@@ -10,10 +10,10 @@ int HeightMap::GetRandomIntBetween(int min, int max) {
 }
 
 void HeightMap::Generate() {
-    GenerateNoise();
+    GeneratePeaks();
 }
 
-void HeightMap::GenerateNoise() {
+void HeightMap::GeneratePeaks() {
     int from = MIN_HEIGHT;
     int to = MAX_HEIGHT;
     int tiles_count = width_ * height_;
@@ -156,20 +156,8 @@ void HeightMap::MakeErosion() {
             if (data_.at(index) > 200) {
                 UpdateNeighbors(index);
             }
+
             index++;
         }
     }    
-}
-
-void HeightMap::filterPeaks() {
-    int index = 0;
-    bool in_process = true;
-    for (int i = 0; i < width_; i++) {
-        for (int j = 0; j < height_; j++) {
-            if (data_.at(index) < 255) {
-                data_.at(index) = 0;
-            }
-            index++;
-        }
-    }
 }

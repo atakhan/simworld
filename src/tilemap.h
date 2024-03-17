@@ -17,7 +17,7 @@ class TileMap {
     void Draw();
     void Update();
     void ApplyHeightMap(HeightMap *map);
-    void Elevate();
+    void ExpandPeaks();
 
     void ParseNeighbors(size_t i, size_t j, std::vector<raylib::Color> *neigbors);
     void MakeErosion();

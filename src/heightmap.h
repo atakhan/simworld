@@ -16,11 +16,10 @@ class HeightMap {
   public:
     HeightMap(int area_w, int area_h);
     void Generate();
-    void GenerateNoise();
+    void GeneratePeaks();
     void SelectHighestNodes();
     int GetRandomIntBetween(int a, int b);
     void MakeErosion();
-    void filterPeaks();
     
     void Clear() { data_.clear(); }
     

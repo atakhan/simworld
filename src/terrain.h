@@ -21,7 +21,7 @@ class Terrain {
     void Update();
 
     void MakeErosion();
-    void filterPeaks();
+    void ExpandPeaks();
     void Regenerate();
   
   private:

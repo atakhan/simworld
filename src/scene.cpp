@@ -18,10 +18,10 @@ void Scene::Init() {
     );
 
     // кнопка для поднятия уровня рельефа (самые низкие поднимаем на ступень выше)
-    elevate_btn_.Init(
+    expand_btn_.Init(
         (Vector2){1280 - 140, 160},
         (Vector2){120, 32},
-        "Filter peaks"
+        "Expand mounts"
     );
 }
 
@@ -29,7 +29,7 @@ void Scene::Draw() {
     terrain_.Draw();
     regenerate_btn_.Draw();
     erosion_btn_.Draw();
-    elevate_btn_.Draw();
+    expand_btn_.Draw();
 }
 
 void Scene::Update() {
@@ -43,7 +43,7 @@ void Scene::Update() {
         terrain_.MakeErosion();
     }
 
-    if (elevate_btn_.IsPressed(mouse)) {
-        terrain_.filterPeaks();
+    if (expand_btn_.IsPressed(mouse)) {
+        terrain_.ExpandPeaks();
     }
 }

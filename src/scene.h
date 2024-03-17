@@ -21,7 +21,7 @@ class Scene {
     raylib::Mouse mouse_;
     Button erosion_btn_;
     Button regenerate_btn_;
-    Button elevate_btn_;
+    Button expand_btn_;
 };
 
 #endif  // SIMWORLD_SRC_SCENE_H

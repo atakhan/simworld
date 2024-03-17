@@ -11,6 +11,10 @@ void Tile::updatePosition(float x, float y) {
     rectangle_.SetY(y);
 }
 
+raylib::Vector2 Tile::GetPosition() {
+    return rectangle_.GetPosition();
+}
+
 void Tile::updateSize(float w, float h) {
     rectangle_.SetWidth(w);
     rectangle_.SetHeight(h);

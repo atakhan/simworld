@@ -32,8 +32,7 @@ void Terrain::Regenerate() {
     std::cout << "regenerate.." << std::endl;
 }
 
-void Terrain::filterPeaks() {
-    height_map_.filterPeaks();
-    tile_map_.ApplyHeightMap(&height_map_);
-    std::cout << "regenerate.." << std::endl;
+void Terrain::ExpandPeaks() {
+    tile_map_.ExpandPeaks();
+    std::cout << "expanding.." << std::endl;
 }

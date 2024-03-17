@@ -16,6 +16,7 @@ class Tile {
     void updateColorByHeightValue(int value);
     raylib::Color getColor() {return color_;}
     raylib::Color getHeight() {return height_;}
+    raylib::Vector2 GetPosition();
 
     void Draw();
  
